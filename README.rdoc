@@ -1,32 +1,33 @@
 = rubyrati
 
-* FIX (url)
+* http://www.github.com/apostlion/rubyrati
 
 == DESCRIPTION:
 
-FIX (describe your package)
+A Ruby wrapper for Technorati API.
 
 == FEATURES/PROBLEMS:
 
-* FIX (list of features or problems)
+* None as of the current release :)
 
 == SYNOPSIS:
 
-  FIX (code sample of usage)
+  Dohh, the same.
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
+* Provide the concise Ruby objects for every function of Technorati API, both related to the blog information retrieval and pinging functionality.
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+* sudo gem install rubyrati
+* require 'rubyrati' in your app.
 
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2008 FIXME full name
+Copyright (c) 2008 Apostlion
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
