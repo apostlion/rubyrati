@@ -12,7 +12,7 @@ A Ruby wrapper for Technorati API.
 
 == SYNOPSIS:
 
-  Dohh, the same.
+* Dohh, the same.
 
 == REQUIREMENTS:
 

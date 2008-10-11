@@ -3,6 +3,7 @@ Manifest.txt
 PostInstall.txt
 README
 README.rdoc
+README.txt
 Rakefile
 config/hoe.rb
 config/requirements.rb
