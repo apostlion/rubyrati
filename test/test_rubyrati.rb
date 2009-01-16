@@ -12,4 +12,9 @@ class TestRubyrati < Test::Unit::TestCase
     assert_not_nil(testblog.get_links(@key))
   end
 
+  def test_should_return_a_hash_of_parameters
+    testblog = Rubyrati::Blog.new(@url)
+    assert_equal(testblog.get_links(@key).class, Array)
+  end
+
 end
