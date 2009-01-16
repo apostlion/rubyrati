@@ -4,6 +4,13 @@ require 'net/http'
 require 'cgi'
 require 'hpricot'
 
+
+##
+# This module holds every class and every method that handles Technorati API.
+# It contains classes for every logical entity that exists in the realm of
+# Technorati datasets - Blog, Tag, Query, etc — and the Base class that all of
+# them extend to handle the query functionality.
+
 module Rubyrati
   class Base
     def initialize(args)
@@ -15,7 +22,7 @@ module Rubyrati
       response = Net::HTTP.start(url.host, url.port) do |http|
         http.get @complete_url, 'User-Agent' => key, 'Accept' => 'text/xml'
       end
-      result = Hpricot(response.body.to_s)
+      result = Hpricot.XML(response.body.to_s)
       result
     end
     
