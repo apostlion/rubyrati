@@ -4,32 +4,31 @@ module Rubyrati
   class Blog < Base
     def get_links(key, *args)
       path = "cosmos"
-      res = fetch(path, key, *args)
-      parsed_response = {:linking_blogs => res.search("//item").collect{|i| resultify_links(i)}}
+      res = fetch(path, key, {:url => @url}, args)
+      parsed_response = {:linking_blogs => res.search("//item").collect{|i| resultify_links(i)}
+      }
     end
     
     private
     
-    def resultify_links(element)
+    def resultify_links(e)
       {
-        :name => element.search("//weblog/name").inner_html,
-        :url => element.search("//weblog/url").inner_html,
-        :rssurl => element.search("//weblog/rssurl").inner_html,
-        :atomurl => element.search("//weblog/atomurl").inner_html,
-        :inbound_blogs => element.search("//weblog/inboundblogs").inner_html,
-        :inbound_links => element.search("//weblog/inboundlinks").inner_html,
-        :last_update => element.search("//weblog/lastupdate").inner_html,
-        :nearest_permalink => element.search("//nearestpermalink").inner_html,
-        :excerpt => element.search("//excerpt").inner_html,
-        :link_created => element.search("//linkcreated").inner_html,
-        :link_url => element.search("//linkurl").inner_html
+        :name => e.get_html("//weblog/name"),
+        :url => e.get_html("//weblog/url"),
+        :rssurl => e.get_html("//weblog/rssurl"),
+        :atomurl => e.get_html("//weblog/atomurl"),
+        :inbound_blogs => e.get_html("//weblog/inboundblogs").to_i,
+        :inbound_links => e.get_html("//weblog/inboundlinks"),
+        :last_update => e.get_html("//weblog/lastupdate"),
+        :nearest_permalink => e.get_html("//nearestpermalink"),
+        :excerpt => e.get_html("//excerpt"),
+        :link_created => e.get_html("//linkcreated"),
+        :link_url => e.get_html("//linkurl")
       }
     end
     
     def resultify_blog(elements)
-      {
-        # To be written.
-      }
+      {}
     end
   end
 end

@@ -9,12 +9,14 @@ class TestRubyrati < Test::Unit::TestCase
   
   def test_should_do_a_basic_cosmos_query
     testblog = Rubyrati::Blog.new(@url)
-    assert_not_nil(testblog.get_links(@key))
+    result = testblog.get_links(@key)
+    assert_not_nil(result)
+    p result
   end
 
   def test_should_return_a_hash_of_parameters
     testblog = Rubyrati::Blog.new(@url)
-    assert_equal(testblog.get_links(@key).class, Array)
+    assert_equal(Hash, testblog.get_links(@key).class)
   end
 
 end

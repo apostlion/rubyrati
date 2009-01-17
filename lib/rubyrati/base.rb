@@ -5,6 +5,14 @@ require 'cgi'
 require 'hpricot'
 
 
+module Hpricot
+  class Elem
+    def get_html(xpath)
+      search(xpath).inner_html
+    end
+  end
+end
+
 ##
 # This module holds every class and every method that handles Technorati API.
 # It contains classes for every logical entity that exists in the realm of
@@ -18,7 +26,7 @@ module Rubyrati
     
     def fetch(path, key, *args)
       url = URI.parse("http://api.technorati.com/" + path)
-      @complete_url = url.path + self.key(key) + self.set_arguments(args)
+      @complete_url = url.path + key(key) + args.collect{|x| set_arguments(x)}.join
       response = Net::HTTP.start(url.host, url.port) do |http|
         http.get @complete_url, 'User-Agent' => key, 'Accept' => 'text/xml'
       end
