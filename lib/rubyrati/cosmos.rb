@@ -18,11 +18,11 @@ module Rubyrati
         :rssurl => e.get_html("//weblog/rssurl"),
         :atomurl => e.get_html("//weblog/atomurl"),
         :inbound_blogs => e.get_html("//weblog/inboundblogs").to_i,
-        :inbound_links => e.get_html("//weblog/inboundlinks"),
-        :last_update => e.get_html("//weblog/lastupdate"),
+        :inbound_links => e.get_html("//weblog/inboundlinks").to_i,
+        :last_update => e.get_html("//weblog/lastupdate").tr_time_to_datetime,
         :nearest_permalink => e.get_html("//nearestpermalink"),
         :excerpt => e.get_html("//excerpt"),
-        :link_created => e.get_html("//linkcreated"),
+        :link_created => e.get_html("//linkcreated").tr_time_to_datetime,
         :link_url => e.get_html("//linkurl")
       }
     end

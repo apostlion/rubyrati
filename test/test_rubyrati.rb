@@ -14,9 +14,13 @@ class TestRubyrati < Test::Unit::TestCase
     p result
   end
 
-  def test_should_return_a_hash_of_parameters
+  def test_should_return_a_hash_of_parameters_for_a_cosmos_query
     testblog = Rubyrati::Blog.new(@url)
     assert_equal(Hash, testblog.get_links(@key).class)
+  end
+
+  def test_should_have_proper_elements_in_a_cosmos_query
+    flunk "To write."
   end
 
 end

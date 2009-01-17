@@ -13,6 +13,12 @@ module Hpricot
   end
 end
 
+class String
+  def tr_time_to_datetime
+    DateTime.strptime(self, "%F %H:%M:%S %Z")
+  end
+end
+
 ##
 # This module holds every class and every method that handles Technorati API.
 # It contains classes for every logical entity that exists in the realm of
