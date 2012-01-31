@@ -29,7 +29,7 @@ module Rubyrati
   class Base
     def initialize(args)
     end
-    
+
     def fetch(path, key, *args)
       url = URI.parse("http://api.technorati.com/" + path)
       @complete_url = url.path + key(key) + args.collect{|x| set_arguments(x)}.join
@@ -39,11 +39,11 @@ module Rubyrati
       result = Hpricot.XML(response.body.to_s)
       result
     end
-    
+
     def key(key)
       "?key=#{CGI::escape key}"
     end
-    
+
     def set_arguments(args)
       arguments = []
       args.each do |key, value|
@@ -51,9 +51,9 @@ module Rubyrati
       end
       arguments.join
     end
-    
+
   end
-  
+
   class Blog < Base
     def initialize(url)
       @url = url
