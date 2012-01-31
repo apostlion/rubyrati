@@ -8,9 +8,9 @@ module Rubyrati
       parsed_response = {:linking_blogs => res.search("//item").collect{|i| resultify_links(i)}
       }
     end
-    
+
     private
-    
+
     def resultify_links(e)
       {
         :name => e.get_html("//weblog/name"),
@@ -26,7 +26,7 @@ module Rubyrati
         :link_url => e.get_html("//linkurl")
       }
     end
-    
+
     def resultify_blog(elements)
       {}
     end
